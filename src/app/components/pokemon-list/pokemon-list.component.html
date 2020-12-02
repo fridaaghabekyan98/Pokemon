@@ -1,0 +1,55 @@
+<h1 *ngIf="!pokemon">Loading...</h1>
+
+<div class="container">
+  <button class="btn list-button" (click)="page = 1; getPokemon(10, 0)">List </button>
+  <div class="row">
+    <div class="col-lg-6 mx-auto">
+      <h6 class="header-text">Pokemons List</h6>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6 mx-auto">
+      <div class="row">
+        <div class="col-lg-4">
+          <select class="form-control selectpicker" [(ngModel)]="typeSearch" >
+            <option [value]="type" *ngFor="let type of types" [ngValue]="type">
+              {{type[0].toUpperCase() + type.substr(1)}}
+            </option>
+          </select>
+        </div>
+        <div class="col-lg-3 ml-auto">
+          <button class="btn" (click)="searchByType()">Search by type</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6 mx-auto">
+      <div class="line"></div>
+    </div>
+  </div>
+  <div class="my-container">
+    <ng-template #customLoadingTemplate>
+
+    </ng-template>
+
+    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
+
+  </div>
+  <div class="row"  *ngIf="!loading">
+    <div class="col-lg-6 mx-auto">
+      <ul class="list-view">
+        <li *ngFor="let item of pokemon; let id = index" [routerLink]="['/details', id+1]">
+            <span>{{ item.name[0].toUpperCase() + item.name.substr(1)  }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row"  *ngIf="!loading">
+    <div class="col-lg-6 mx-auto">
+      <ngb-pagination [collectionSize]="pokemon.length*10" [(page)]="page" pageSize="{{limit}}" ellipses="false"
+                      rotate="true" maxSize="5" (pageChange)="onPageChange(page)">
+      </ngb-pagination>
+    </div>
+  </div>
+</div>
