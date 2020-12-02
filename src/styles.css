@@ -51,7 +51,7 @@ li.page-item a {
 .card {
   border: 1px solid #764ABD;
   border-radius: 2px;
-  background: transparent!important;
+  background: transparent !important;
   margin-top: 50px;
 }
 
@@ -61,6 +61,7 @@ li.page-item a {
   border-radius: 5px;
   font-weight: bold;
 }
+
 .info-block ul {
   list-style: none;
   padding: 10px 10px;
@@ -70,6 +71,7 @@ li.page-item a {
   color: #654D89;
   font-weight: bold;
 }
+
 .info-block li {
   margin-top: 5px;
   color: white;
@@ -81,6 +83,7 @@ li.page-item a {
   margin: 10px 10px;
   float: left;
 }
+
 li.list-inline-item {
   background: rebeccapurple;
   border-bottom-left-radius: 10px;
@@ -89,4 +92,20 @@ li.list-inline-item {
   text-transform: uppercase;
   box-shadow: 1px 1px 2px 1px #352b4a;
   font-size: 13px;
+}
+
+button.btn.list-button {
+  border-radius: 0;
+  background: transparent;
+  color: #764abd;
+  border: 1px solid #764abd;
+  padding: 8px 20px;
+  font-weight: bold;
+}
+
+button.btn.search {
+  margin-left: -5px;
+  background: #764abd;
+  color: #fff;
+  font-size: 14px;
 }
